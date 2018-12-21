@@ -20,4 +20,6 @@ public class CommonMethods extends BaseClass {
 		WebElement elm = waiting(element);
 		elm.click();
 	}
+	
+	
 }

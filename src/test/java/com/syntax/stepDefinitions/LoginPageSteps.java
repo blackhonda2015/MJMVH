@@ -29,8 +29,16 @@ public class LoginPageSteps {
 		CommonMethods.click(login.btnLogin);
 	}
 
+	@Then("^I see error message \"([^\"]*)\"$")
+	public void i_see_error_message(String arg1) {
+		String actual = login.errorMessage.getText();
+		Assert.assertEquals(actual, arg1);
+	}
+
 	@Then("^I successfully logged in$")
 	public void i_successfully_logged_in() {
 
 	}
+	
+	
 }
