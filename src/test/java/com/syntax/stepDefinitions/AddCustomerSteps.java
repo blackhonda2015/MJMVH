@@ -22,7 +22,7 @@ public class AddCustomerSteps {
 
 	AddCustomer newCust;
 	WebDriver driver;
-	public static  String name;
+	public static String name;
 
 	@Given("^I logged into OrangeHRM$")
 	public void i_logged_into_OrangeHRM() throws Throwable {
@@ -59,7 +59,6 @@ public class AddCustomerSteps {
 		CommonMethods.enterValue(newCust.customerName, name);
 		CommonMethods.enterValue(newCust.description, description);
 
-		
 	}
 
 	@When("^I click Save$")
@@ -69,16 +68,17 @@ public class AddCustomerSteps {
 
 	@Then("^I see that the customer is displayed in the Customers table$")
 	public void i_see_that_the_customer_is_displayed_in_the_Customers_table() {
-		List<WebElement> verifyAdd = driver.findElements(By.xpath("//table[@id='resultTable']//tbody/tr\")).
-		System.out.println(verifyAdd);
-//		for (int i = 0; i < verifyAdd.size(); i++) {
-//			String text = verifyAdd.get(i).getText();
-//			if (text.contains(name)) {
-//				System.out.println("Customer added");
-			
+	
+		List<WebElement> verifyAdd = driver.findElements(By.xpath("//table[@id=‘resultTable’]/tbody/tr/td/a"));
+		for (int i = 0; i < verifyAdd.size(); i++) {
+			String text = verifyAdd.get(i).getText();
+			if (!text.equals("toyota")) {
+				System.out.println("customer not added");
+			}else {
+				System.out.println("Customer added");
+
 			}
 
-		
-
-	
+		}
+	}
 }
