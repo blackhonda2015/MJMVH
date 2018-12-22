@@ -5,6 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.syntax.utils.BaseClass;
+import com.syntax.utils.CommonMethods;
 
 public class LoginPage extends BaseClass{
 
@@ -26,4 +27,6 @@ public class LoginPage extends BaseClass{
 	public LoginPage() {
 		PageFactory.initElements(driver, this);
 	}
+	
+	
 }
